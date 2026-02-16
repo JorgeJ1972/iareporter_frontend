@@ -1,0 +1,191 @@
+/* Estilos para el header */
+.headers {
+  background-color: #f8f9fa; /* Un color de fondo suave y profesional */
+  border-bottom: 1px solid #dee2e6;
+  color: #495057; /* Texto más oscuro para mejor contraste */
+  position: sticky; /* Mantiene el header fijo al hacer scroll */
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  /* La altura se determina por su contenido y padding, aprox. 74px */
+}
+
+.main-title {
+  font-size: 1.5rem; /* Tamaño de fuente relativo */
+  font-weight: bold;
+  text-align: center;
+  color: #343a40;
+}
+
+.main-datas {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: nowrap; /* Evita que los elementos se envuelvan por defecto */
+}
+
+.data-style {
+  line-height: 1.3;
+  text-align: left;
+}
+
+.data-user {
+  font-weight: bold;
+}
+.data-email,
+.data-role {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-close-session {
+  font-size: 2rem !important; /* Reducido para mejor ajuste */
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.2s;
+}
+
+.main-close-session:hover {
+  color: var(--primary-color);
+}
+
+.menu-toggle-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 40px;
+  margin-left: 1rem;
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Para tablets y móviles (breakpoint 'md' de PrimeFlex es 768px) */
+@media (max-width: 768px) {
+  .main-title-container {
+    display: none; /* Ocultamos el título en pantallas pequeñas */
+  }
+
+  .main-datas {
+    gap: 0.75rem; /* Reducimos el espacio en móviles */
+  }
+
+  .data-style {
+    display: none; /* Ocultamos nombre, email y rol para un look más limpio */
+  }
+
+  .p-avatar-icon {
+    font-size: 1.2rem; /* Hacemos el ícono del avatar más pequeño */
+  }
+
+  .main-close-session {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 576px) {
+  .headers {
+    padding: 0.75rem !important; /* Menos padding en el header */
+  }
+
+  .logo-image {
+    display: none; /* Ocultamos el logo de texto para dejar solo el ícono de menú */
+  }
+
+  .language-switcher .p-button-label {
+    font-size: 0.8rem; /* Hacemos el texto de los botones de idioma más pequeño */
+  }
+}
+
+
+/* --- Estilos para el Layout Principal (Sidebar y Contenido) --- */
+
+.layout-wrapper {
+  display: flex;
+  position: relative;
+}
+
+
+/* Estilos para el Sidebar de PrimeReact */
+.layout-sidebar {
+  background-color: #ffffff;
+  border-right: 1px solid #dee2e6;
+  height: calc(100vh - 74px); /* Altura del viewport menos la del header */
+  position: sticky;
+  top: 74px; /* Pegado debajo del header */
+  transition: margin-left 0.3s ease;
+}
+
+.contenido {
+  flex-grow: 1;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  overflow-y: auto; /* Permitir scroll si el contenido es largo */
+  transition: margin-left 0.3s ease;
+  height: calc(100vh - 74px);
+}
+
+.contenido-con-menu {
+  margin-left: 250px; /* Ancho del sidebar, ajusta si lo cambias */
+}
+
+.title-menu {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.menu-group {
+  margin-bottom: 20px;
+}
+
+.menu-group-title {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  color: #333;
+  white-space: nowrap;
+}
+
+.menu-item:hover {
+  background-color: #e9ecef;
+}
+
+.menu-icon {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.menu-item-label {
+  font-size: 1rem;
+}
+
+/* Media query para ajustar el layout en móviles */
+@media (max-width: 991px) {
+  .contenido-con-menu {
+    margin-left: 0; /* En móvil, el sidebar es modal y no empuja el contenido */
+  }
+}
