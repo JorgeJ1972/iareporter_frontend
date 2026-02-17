@@ -1,0 +1,9 @@
+export interface EnvironmentTablesGroup {
+    user_id:number;
+    environment_id:number;
+    environmenr_name:string;
+    environment_description:string;
+    tables_group_id:number;
+    tables_group_name:string;
+    tables_group_description:string;
+}
