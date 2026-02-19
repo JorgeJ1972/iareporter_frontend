@@ -23,7 +23,8 @@ export const chatService = {
       if (!token || token === "undefined" || token === "null" || token.trim() === "") {
         throw new Error("No se encontró un token válido para autenticación");
       }
-      const response = await fetch("http://localhost:8000/chat/stream_message", {
+      //const response = await fetch("http://localhost:8000/chat/stream_message", {
+      const response = await fetch("https://red-mushroom-076d2a50f.1.azurestaticapps.net/chat/stream_message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
