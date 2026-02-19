@@ -1,15 +1,11 @@
-import { RefObject } from "react";
 import NamesStorage from "../types/constants/NamesStorage";
 import Menu from "../types/Menu";
 import TokenResponse from "../types/TokenResponse";
 import { UserResponse } from "../types/user";
 import { HandlerStorage } from "../utils/HandlerStorage";
 import apiClient from "./apiClient";
-import { Toast } from "primereact/toast";
 import MessageResponse from "../types/MessageResponse";
 import { jwtDecode } from 'jwt-decode'; // <-- Añadir esta importación
-import { MessageUtils } from "../utils/MessageUtils";
-import { EnvironmentTablesGroup } from "../types/environment";
 
 // 1. Se define un tipo para comunicar el estado de la autenticación de forma clara.
 export type AuthStatus = {

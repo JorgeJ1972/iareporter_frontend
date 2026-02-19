@@ -21,7 +21,7 @@ type LayoutFinalProps = {
 const LayoutFinal: React.FC<LayoutFinalProps> = ({ children }) => {
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng: 'es' | 'en') => {
+  const changeLanguage = (lng: 'es' | 'en' | 'pt') => {
     i18n.changeLanguage(lng);
   };
 

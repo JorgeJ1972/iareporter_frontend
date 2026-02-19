@@ -20,7 +20,7 @@ import { UserResponse } from "../types/user";
 interface TableGroupsUserPageProps {}
 
 const TableGroupsUserPage: React.FC<TableGroupsUserPageProps> = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { toastRef, setBlocked } = useGlobal();
   const navigate = useNavigate();
   const { userId } = useParams<{ userId: string }>();
@@ -321,7 +321,7 @@ const TableGroupsUserPage: React.FC<TableGroupsUserPageProps> = () => {
               header={renderPanelHeader(environment)}
               toggleable
               collapsed={!expandedPanels.has(environment.id)}
-              onToggle={(e) => {
+              onToggle={() => {
                 const newExpanded = new Set(expandedPanels);
                 const isCurrentlyExpanded = expandedPanels.has(environment.id);
                 

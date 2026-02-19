@@ -3,7 +3,6 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Toolbar } from 'primereact/toolbar';
-import { Dialog } from 'primereact/dialog';
 import { confirmDialog } from 'primereact/confirmdialog';
 import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
@@ -16,7 +15,6 @@ import { ReportTestDialog } from '../components/reports/ReportTestDialog';
 import { ReportDialog } from '../components/reports/ReportDialog';
 import { ParamsDialog } from '../components/reports/ParamsDialog';
 import { motion } from 'framer-motion';
-import { useGlobal } from '../context/GlobalContext';
 import { useTranslation } from 'react-i18next';
 import { Tag } from 'primereact/tag';
 

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { moduleService } from "../services/moduleService";
 import { useTranslation } from "react-i18next";
 
 const MainPage = () => {

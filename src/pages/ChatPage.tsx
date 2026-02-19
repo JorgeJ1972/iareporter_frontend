@@ -88,7 +88,7 @@ const MarkdownContent: React.FC<{ content: string }> = ({ content }) => {
     <div className="markdown-wrapper">
       {hasTable && (
         <>
-          <Tooltip target={buttonRef} />
+          
           <Button
             ref={buttonRef}
             icon={isCopied ? 'pi pi-check' : 'pi pi-copy'}
@@ -400,11 +400,6 @@ const ChatPage: React.FC = () => {
       () => {
           setIsTyping(false)
           setStatusText(null);
-      },
-      (error) => {
-        toastRef.current?.show({ severity: 'error', summary: t('common.errorSummary'), detail: t('chat.errors.sendMessage') });
-        setIsTyping(false);
-        setStatusText(null);
       }
     );
   };

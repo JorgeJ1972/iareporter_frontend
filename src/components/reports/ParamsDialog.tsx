@@ -78,52 +78,6 @@ const formatValuesToString = (compValue: any, typeId: number, isRange: boolean):
 }
 
 // --- Helper Validation Function ---
-const validateParamValues = (paramTypeId: number, values: string | null): string | null => {
-    if (!values || values.trim() === '') {
-        return null; // Empty is allowed
-    }
-
-    const trimmedValues = values.trim();
-    const contentMatch = trimmedValues.match(/^{([^{}]*)}$/);
-
-    if (!contentMatch) {
-        return "Invalid format. Values must be enclosed in curly braces, e.g., {1,2,3} or {1...100}.";
-    }
-
-    const content = contentMatch[1].trim();
-    if (content === '') {
-        return null; // {} is valid
-    }
-
-    // Range validation
-    if (content.includes('...')) {
-        const parts = content.split('...').map(p => p.trim());
-        if (parts.length !== 2 || parts.some(p => p === '')) {
-            return "Invalid range format. Must be {start...end}.";
-        }
-        if (paramTypeId === 1) { // Numeric
-            if (!/^\d+$/.test(parts[0]) || !/^\d+$/.test(parts[1])) {
-                return "Numeric range values must be integers.";
-            }
-        } else if (paramTypeId === 3 || paramTypeId === 4) { // Date or Datetime
-            const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
-            const datetimeRegex = /^\d{4}\/\d{2}\/\d{2} \d{2}:\d{2}:\d{2}$/;
-            const regex = paramTypeId === 3 ? dateRegex : datetimeRegex;
-            if (!regex.test(parts[0]) || !regex.test(parts[1])) {
-                return `Invalid date/datetime format. Use yyyy/mm/dd or yyyy/mm/dd HH:MM:ss.`;
-            }
-        }
-    }
-    // List validation
-    else if (paramTypeId === 1) { // Numeric list
-        const items = content.split(',').map(item => item.trim());
-        if (items.some(item => !/^\d+$/.test(item))) {
-            return "All items in a numeric list must be integers.";
-        }
-    }
-
-    return null; // No validation errors
-};
 
 
 // --- Main Component ---
@@ -296,10 +250,6 @@ export const ParamsDialog = ({ visible, onHide, report }: ParamsDialogProps) => 
 
     const paramTypeBodyTemplate = (rowData: ReportParamResponse) => {
         return paramTypes.find(pt => pt.id === rowData.param_type_id)?.name || 'Unknown';
-    };
-
-    const enabledBodyTemplate = (rowData: ReportParamResponse) => {
-        return <i className={classNames('pi', { 'pi-check-circle text-green-500': rowData.is_enabled, 'pi-times-circle text-red-500': !rowData.is_enabled })}></i>;
     };
 
     const paramDetailDialogFooter = (

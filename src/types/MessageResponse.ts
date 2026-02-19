@@ -1,6 +1,3 @@
-import { Toast } from "primereact/toast";
-import { RefObject } from "react";
-
 export interface MessageResponse<T> {
   //code(toastRef: RefObject<Toast | null>, code: any, message: string): unknown;
   status: number;

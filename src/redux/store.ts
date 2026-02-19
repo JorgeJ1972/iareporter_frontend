@@ -1,7 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import rootReducer from './rootReducer'
+import { combineReducers } from '@reduxjs/toolkit';
+// Import your slices here. Example:
+// import projectReducer from './slices/projectSlice';
+
+const rootReducer = combineReducers({
+  // Add your reducers here
+  // project: projectReducer,
+});
+
+export default rootReducer;
 
 const persistConfig = {
   key: 'root',

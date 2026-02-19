@@ -2,8 +2,8 @@ import { PublicClientApplication, type AuthenticationResult, type PopupRequest }
 
 const DEFAULT_SCOPES = (import.meta.env.VITE_AZURE_AD_SCOPES ?? "openid profile email")
   .split(" ")
-  .map((scope) => scope.trim())
-  .filter((scope) => scope.length > 0);
+  .map((scope: string) => scope.trim())
+  .filter((scope: string | any[]) => scope.length > 0);
 
 const CLIENT_ID = import.meta.env.VITE_AZURE_AD_CLIENT_ID ?? "d1574034-c6ad-497f-90f3-2312e6773ea7";
 const TENANT_ID = import.meta.env.VITE_AZURE_AD_TENANT_ID ?? "93f33571-550f-43cf-b09f-cd331338d086";

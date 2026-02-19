@@ -88,7 +88,7 @@ export const ReportTestDialog: React.FC<Props> = ({ visible, onHide, report }) =
       .finally(() => setRunning(false));
   };
 
-  const renderParamInput = (p: ReportParam, index: number) => {
+  const renderParamInput = (p: ReportParam) => {
     const current = selectedValues.find(v => v.id === p.id);
     if (p.type_element === 'select') {
       return (
@@ -165,12 +165,12 @@ export const ReportTestDialog: React.FC<Props> = ({ visible, onHide, report }) =
           <p style={{ whiteSpace: 'pre-line' }}>{report.prompt}</p>
           {params.length > 0 && (
             <div className="grid" style={{ rowGap: '1rem' }}>
-              {params.map((p, i) => (
+              {params.map((p) => (
                 <div key={p.id} className="col-12 md:col-6">
                   <label style={{ fontWeight: 600, display: 'block', marginBottom: 4 }}>
                     {p.prompt_part}:
                   </label>
-                  {renderParamInput(p, i)}
+                  {renderParamInput(p)}
                 </div>
               ))}
             </div>

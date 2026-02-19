@@ -21,7 +21,7 @@ import { environmentService } from "../services/environmentService";
 import { EnvTableResponse, EnvTableUpdate } from "../types/envTable";
 import { EnvTableColumnResponse, EnvTableColumnUpdate } from "../types/envTableColumn";
 import { EnvironmentResponse } from "../types/environment";
-import { SyncTaskProgress, SyncTaskListResponse } from "../types/syncTask";
+import { SyncTaskProgress } from "../types/syncTask";
 import { MessageUtils } from "../utils/MessageUtils";
 import { useGlobal } from "../context/GlobalContext";
 import { useTranslation } from "react-i18next";

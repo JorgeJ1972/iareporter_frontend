@@ -69,7 +69,7 @@ const ChatConfigPage: React.FC = () => {
   };
 
   const [isSaving, setIsSaving] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const toastRefLocal = useRef<Toast | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {

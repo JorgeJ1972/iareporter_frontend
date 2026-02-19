@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import './ReportPage.css';
 import { useTranslation } from 'react-i18next';
@@ -22,17 +22,17 @@ function ReportPage() {
   const { toastRef, setBlocked } = useGlobal();
   const [environments, setEnvironmentUser] = useState<TableGroup[] | []>();
   const [reports, setReport] = useState<Report[] | []>();
-  const [selectedEnvironment, setSelectedEnvironment] = useState<TableGroup | null>(null);
+  const [, setSelectedEnvironment] = useState<TableGroup | null>(null);
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
   const [reportParams, setReportParam] = useState<ReportParam[] | []>([]);
-  const [reportParamsExt, setReportParamExt] = useState<ReportParamValueExtended[] | []>([]);
+  const [] = useState<ReportParamValueExtended[] | []>([]);
   const [selectedValues, setSelectedValues] = useState<ReportParamValue[]>([]);
-  const [selectedValue, setSelectedValue] = useState<string[] | []>([]);
-  const [value, setValue] = useState<string[] | []>([]);
+  const [] = useState<string[] | []>([]);
+  const [] = useState<string[] | []>([]);
   const [resultsVisible, setResultsVisible] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(false);
-  const [reportRun, setReportRun] = useState<RunReport | null>(null);
-  const [paramRun, setParamRun] = useState<ParamRun | null>(null);
+  const [] = useState<RunReport | null>(null);
+  const [] = useState<ParamRun | null>(null);
   const [runReportResponse, setRunReportResponse] = useState<RunReportResponse | null>(null);
 
   const handleInputChange = (paramId: string, type_id: number, value: string) => {
@@ -157,7 +157,7 @@ function ReportPage() {
   });
 
 
-  const handleRunReport = (async (e: { value: Report | null; }) => {
+  const handleRunReport = (async () => {
     if (!selectedReport) {
 
       toastRef.current?.show({ severity: 'warn', summary: t('reports.noReportSelected'), detail: t('reports.selectReport'), life: 3000 });
@@ -310,7 +310,7 @@ function ReportPage() {
               disabled={!selectedReport}
               visible={visible}
               className="p-button-sm button-primary"
-              onClick={() => handleRunReport({ value: selectedReport })} /> </p>
+              onClick={() => handleRunReport()} /> </p>
           </div>
           )}
           {resultsVisible && (

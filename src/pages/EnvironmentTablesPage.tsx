@@ -20,14 +20,14 @@ import { InputText } from "primereact/inputtext";
 interface EnvironmentTablesPageProps {}
 
 const EnvironmentTablesPage: React.FC<EnvironmentTablesPageProps> = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { toastRef, setBlocked } = useGlobal();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(true);
   const { environmentId } = useParams<{ environmentId: string }>();
   
-  const [environment, setEnvironment] = useState<EnvironmentResponse | null>(null);
-  const [tables, setTables] = useState<EnvTableResponse[]>([]);
+  const [, setEnvironment] = useState<EnvironmentResponse | null>(null);
+  const [, setTables] = useState<EnvTableResponse[]>([]);
   const [profileName, setProfileName] = useState<string>("");
   const [profileDescription, setProfileDescription] = useState<string>("");
   

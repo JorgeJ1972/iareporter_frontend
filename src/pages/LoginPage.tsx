@@ -275,8 +275,8 @@ const LoginPage: React.FC = () => {
                     toggleMask
                     tooltipOptions={{ position: 'right' }}
                     pt={{
-                      toggler: (options) => ({
-                        'data-pr-tooltip': options.state.mask ? t('login.showPasswordTooltip') : t('login.hidePasswordTooltip')
+                      showIcon: (options: any) => ({
+                        'data-pr-tooltip': options?.state?.mask ? t('login.showPasswordTooltip') : t('login.hidePasswordTooltip')
                       }),
                       input: {
                         style: { borderRadius: "0px 8px 8px 0px", padding: "12px" }
