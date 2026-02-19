@@ -130,11 +130,11 @@ const EnvironmentPage: React.FC = () => {
     // Determinar qué imagen usar según el tipo de base de datos
     const getDatabaseIcon = (typeName: string) => {
       const type = typeName.toLowerCase();
-      if (type.includes('sql server')) return '/src/assets/sql-server-icon.png';
-      if (type.includes('mysql')) return '/src/assets/mysql-icon.png';
-      if (type.includes('postgresql')) return '/src/assets/postgresql-icon.png';
-      if (type.includes('oracle')) return '/src/assets/oracle-icon.png';
-      return '/src/assets/database-icon.png'; // Icono por defecto
+      if (type.includes('sql server')) return '../assets/sql-server-icon.png';
+      if (type.includes('mysql')) return '../assets/mysql-icon.png';
+      if (type.includes('postgresql')) return '../assets/postgresql-icon.png';
+      if (type.includes('oracle')) return '../assets/oracle-icon.png';
+      return '../assets/database-icon.png'; // Icono por defecto
     };
     
     return (
